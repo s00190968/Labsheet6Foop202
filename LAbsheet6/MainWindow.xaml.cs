@@ -42,7 +42,35 @@ namespace LAbsheet6
 
         private void btnQuery_click3(object sender, RoutedEventArgs e)
         {
+            var q = db.Orders.Where(o =>
+            o.Customer.City.Equals("London") ||
+            o.Customer.City.Equals("Paris") ||
+            o.Customer.City.Equals("USA")).OrderBy(o => o.Customer.CompanyName)
+            .Select(o => new {
+                CustomerName = o.Customer.CompanyName,
+                City = o.Customer.City,
+                Address = o.ShipAddress
+            });
 
+            dgrCustomersEx3.ItemsSource = q.ToList().Distinct();
+        }
+
+        private void btnQuery_click4(object sender, RoutedEventArgs e)
+        {
+            ShowProducts(dgrCustomersEx4);
+        }
+
+        private void ShowProducts(DataGrid current)
+        {
+            var q = db.Products.Where(p => p.Category.CategoryName.Equals("Beverages"))
+                .OrderByDescending(p => p.ProductID).Select(p => new
+                {
+                    p.ProductID,
+                    p.ProductName,
+                    p.Category.CategoryName,
+                    p.UnitPrice
+                });
+            current.ItemsSource = q.ToList();
         }
     }
 }
