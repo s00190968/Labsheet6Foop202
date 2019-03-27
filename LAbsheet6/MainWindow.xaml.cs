@@ -20,9 +20,29 @@ namespace LAbsheet6
     /// </summary>
     public partial class MainWindow : Window
     {
+        NORTHWNDEntities db = new NORTHWNDEntities();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnQuery_click(object sender, RoutedEventArgs e)
+        {
+            var query = db.Customers.Select(c => c.CompanyName);
+
+            lbxCustomersEx1.ItemsSource = query.ToList();
+        }
+
+        private void btnQuery_click2(object sender, RoutedEventArgs e)
+        {
+            var query = db.Customers.Select(c => c);
+
+            dgrCustomersEx2.ItemsSource = query.ToList();
+        }
+
+        private void btnQuery_click3(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

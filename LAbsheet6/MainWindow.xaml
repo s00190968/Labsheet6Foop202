@@ -6,7 +6,36 @@
         xmlns:local="clr-namespace:LAbsheet6"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <TabControl TabStripPlacement="Top">
+        <TabItem Name="Ex1" Header="Ex1" Width="50">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="90*"/>
+                </Grid.RowDefinitions>
+                <Button Name="btnQueryEx1" Content="Query" Height="25" Width="75" Click="btnQuery_click"/>
+                <ListBox Name="lbxCustomersEx1" Grid.Row="1" Grid.Column="0"/>
+            </Grid>
+        </TabItem>
+        <TabItem Name="Ex2" Header="Ex2" Width="50">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="90*"/>
+                </Grid.RowDefinitions>
+                <Button Name="btnQueryEx2" Content="Query" Height="25" Width="75" Click="btnQuery_click2"/>
+                <DataGrid Name="dgrCustomersEx2" Grid.Row="1" Grid.Column="0"/>
+            </Grid>
+        </TabItem>
+        <TabItem Name="Ex3" Header="Ex3" Width="50">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="90*"/>
+                </Grid.RowDefinitions>
+                <Button Name="btnQueryEx3" Content="Query" Height="25" Width="75" Click="btnQuery_click3"/>
+                <DataGrid Name="dgrCustomersEx3" Grid.Row="1" Grid.Column="0"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>
