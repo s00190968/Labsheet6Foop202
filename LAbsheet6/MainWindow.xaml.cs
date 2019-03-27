@@ -87,5 +87,44 @@ namespace LAbsheet6
 
             ShowProducts(dgrCustomersEx5);
         }
+
+        private void btnQuery_click6(object sender, RoutedEventArgs e)
+        {
+            Product p1 = db.Products.Where(p => p.ProductName.StartsWith("Kick"))
+                .Select(p => p).First();
+
+            p1.UnitPrice = 100m;
+
+            db.SaveChanges();
+            ShowProducts(dgrCustomersEx6);
+        }
+
+        private void btnQuery_click7(object sender, RoutedEventArgs e)
+        {
+            var products = db.Products.Select(p => p).Where(p => p.ProductName.StartsWith("Kick"));
+
+            foreach (var item in products)
+            {
+                item.UnitPrice = 100m;
+            }
+
+            db.SaveChanges();
+            ShowProducts(dgrCustomersEx7);
+        }
+
+        private void btnQuery_click8(object sender, RoutedEventArgs e)
+        {
+            var products = db.Products.Select(p => p).Where(p => p.ProductName.StartsWith("Kick"));
+
+            db.Products.RemoveRange(products);
+            db.SaveChanges();
+            ShowProducts(dgrCustomersEx8);
+        }
+
+        private void btnQuery_click9(object sender, RoutedEventArgs e)
+        {
+            var q = db.Customers_By_City("London");
+            dgrCustomersEx9.ItemsSource = q.ToList();
+        }
     }
 }
