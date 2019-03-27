@@ -72,5 +72,20 @@ namespace LAbsheet6
                 });
             current.ItemsSource = q.ToList();
         }
+
+        private void btnQuery_click5(object sender, RoutedEventArgs e)
+        {
+            Product p = new Product()
+            {
+                ProductName = "Kickapoo Jungle Joy Juice",
+                UnitPrice = 12.49m,
+                CategoryID = 1
+            };
+
+            db.Products.Add(p);
+            db.SaveChanges();
+
+            ShowProducts(dgrCustomersEx5);
+        }
     }
 }

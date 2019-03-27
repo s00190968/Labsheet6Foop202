@@ -47,5 +47,15 @@
                 <DataGrid Name="dgrCustomersEx4" Grid.Row="1" Grid.Column="0"/>
             </Grid>
         </TabItem>
+        <TabItem Name="Ex5" Header="Ex5" Width="50">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="90*"/>
+                </Grid.RowDefinitions>
+                <Button Name="btnQueryEx5" Content="Add and show" Height="25" Width="auto" Click="btnQuery_click5"/>
+                <DataGrid Name="dgrCustomersEx5" Grid.Row="1" Grid.Column="0"/>
+            </Grid>
+        </TabItem>
     </TabControl>
 </Window>
